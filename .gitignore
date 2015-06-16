@@ -1,0 +1,25 @@
+################
+#  TeX ignore  #
+################
+
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+ContBahug.tex
+
+## For colored output from the minted package.
+_minted*
+*.pyg
+
+
+####################
+#  Haskell Ignore  #
+####################
+
+*.o
+*.hi
+main
