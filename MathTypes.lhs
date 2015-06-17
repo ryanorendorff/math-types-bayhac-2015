@@ -644,7 +644,8 @@ Dissection
 An example use of a zipper
 --------------------------
 
-Let's look at a binary tree.^[this example stolen wholesale from the ]
+Let's look at a binary tree.^[this example stolen wholesale from the Clowns
+and Jokers paper.]
 
 > data Expr = Val Int | Add Expr Expr
 
@@ -704,37 +705,12 @@ structuring our data. What joy!"
 References
 ----------
 
+All article names are clickable links.
+
 - [Clowns to the Left of me, Jokers to the Right](http://strictlypositive.org/CJ.pdf) by Conor McBride (the POPL version).
 - [Organizing Numerical Theories using Axiomatic Type Classes](http://www.slideshare.net/lawrencepaulson/type-classes-slides) by Pawrence Paulson
 - [The Algebra of Albebraic Data Types](https://www.youtube.com/watch?v=YScIPA8RbVE) by Chris Taylor (written version [1](http://chris-taylor.github.io/blog/2013/02/10/the-algebra-of-algebraic-data-types/), [2](http://chris-taylor.github.io/blog/2013/02/11/the-algebra-of-algebraic-data-types-part-ii/), and [3](http://chris-taylor.github.io/blog/2013/02/13/the-algebra-of-algebraic-data-types-part-iii/))
 - [Category Theory for Programmers](http://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/) by Bartosz Milewski
 - [Conquering Folds](https://www.fpcomplete.com/user/edwardk/conquering-folds) by Edward Kmett
 - Zippers Part [1](https://pavpanchekha.com/blog/zippers/huet.html), [2](https://pavpanchekha.com/blog/zippers/derivative.html), [3](https://pavpanchekha.com/blog/zippers/kiselyov.html) by Pavel Panchekha
-
-
-Extra Stuff
------------
-
-< data Tree = Leaf | Node Tree Tree deriving Show
-<
-< foldTree :: a -> (a -> a -> a) -> Tree -> a
-< foldTree l n Leaf = l
-< foldTree l n (Node a b) = n (foldTree l n a) (foldTree l n b)
-<
-< t = Node (Node Leaf (Node (Node Leaf Leaf) Leaf)) (Node Leaf Leaf)
-
-. . .
-
-< foldTail :: forall a. a -> (a -> a -> a) -> Tree -> a
-< foldTail l n t = inward t []
-<     where
-<
-<         inward :: Tree -> [Either Tree a] -> a
-<         inward Leaf       gamma = outward l gamma
-<         inward (Node a b) gamma = inward a (Left b:gamma)
-<
-<         outward :: a -> [Either Tree a] -> a
-<         outward t [] = t
-<         outward t (Left b:gamma) = inward b (Right t:gamma)
-<         outward t (Right u:gamma) = outward (n u t) gamma
-
+- [Polynomial Functors Constrainted by Regular Expressions](http://dept.cs.williams.edu/~byorgey/pub/type-matrices.pdf) by Dan Piponi and Brent Yorgey
