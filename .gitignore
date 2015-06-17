@@ -9,7 +9,7 @@
 *.snm
 *.toc
 *.vrb
-ContBahug.tex
+MathTypes.tex
 
 ## For colored output from the minted package.
 _minted*
